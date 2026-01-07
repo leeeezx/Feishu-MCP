@@ -3,7 +3,8 @@
 ## 0. 获取登录token
 
 ### 请求
-```bash
+
+```Shell
 curl -i -X POST 'https://open.feishu.cn/open-apis/auth/v3/app_access_token/internal' \
 -H 'Content-Type: application/json' \
 -d '{
@@ -13,7 +14,8 @@ curl -i -X POST 'https://open.feishu.cn/open-apis/auth/v3/app_access_token/inter
 ```
 
 ### 返回结果
-```json
+
+```JSON
 {
   "app_access_token": "<access_token>",
   "code": 0,
@@ -26,7 +28,8 @@ curl -i -X POST 'https://open.feishu.cn/open-apis/auth/v3/app_access_token/inter
 ## 1. 创建飞书文档
 
 ### 请求
-```bash
+
+```Shell
 curl -i -X POST 'https://open.feishu.cn/open-apis/docx/v1/documents' \
 -H 'Content-Type: application/json' \
 -H 'Authorization: Bearer <access_token>' \
@@ -37,7 +40,8 @@ curl -i -X POST 'https://open.feishu.cn/open-apis/docx/v1/documents' \
 ```
 
 ### 返回结果
-```json
+
+```JSON
 {
   "code": 0,
   "data": {
@@ -54,13 +58,15 @@ curl -i -X POST 'https://open.feishu.cn/open-apis/docx/v1/documents' \
 ## 2. 获取文档基本信息
 
 ### 请求
-```bash
+
+```Shell
 curl -i -X GET 'https://open.feishu.cn/open-apis/docx/v1/documents/<document_id>' \
 -H 'Authorization: Bearer <access_token>'
 ```
 
 ### 返回结果
-```json
+
+```JSON
 {
   "code": 0,
   "data": {
@@ -86,13 +92,15 @@ curl -i -X GET 'https://open.feishu.cn/open-apis/docx/v1/documents/<document_id>
 ## 3. 获取文档中的纯文本内容
 
 ### 请求
-```bash
+
+```Shell
 curl -i -X GET 'https://open.feishu.cn/open-apis/docx/v1/documents/<document_id>/raw_content?lang=0' \
 -H 'Authorization: Bearer <access_token>'
 ```
 
 ### 返回结果
-```json
+
+```JSON
 {
   "code": 0,
   "data": {
@@ -105,13 +113,15 @@ curl -i -X GET 'https://open.feishu.cn/open-apis/docx/v1/documents/<document_id>
 ## 4. 获取文档中的块
 
 ### 请求
-```bash
+
+```Shell
 curl -i -X GET 'https://open.feishu.cn/open-apis/docx/v1/documents/<document_id>/blocks?document_revision_id=-1&page_size=500' \
 -H 'Authorization: Bearer <access_token>'
 ```
 
 ### 返回结果
-```json
+
+```JSON
 {
   "code": 0,
   "data": {
@@ -151,7 +161,8 @@ curl -i -X GET 'https://open.feishu.cn/open-apis/docx/v1/documents/<document_id>
 ## 5. 创建块
 
 ### 请求
-```bash
+
+```Shell
 curl -i -X POST 'https://open.feishu.cn/open-apis/docx/v1/documents/<document_id>/blocks/<block_id>/children?document_revision_id=-1' \
 -H 'Content-Type: application/json' \
 -H 'Authorization: Bearer <access_token>' \
@@ -189,7 +200,8 @@ curl -i -X POST 'https://open.feishu.cn/open-apis/docx/v1/documents/<document_id
 ## 6. 添加代码块
 
 ### 请求
-```bash
+
+```Shell
 curl -i -X POST 'https://open.feishu.cn/open-apis/docx/v1/documents/<document_id>/blocks/<block_id>/children?document_revision_id=-1' \
 -H 'Content-Type: application/json' \
 -d '{
@@ -226,7 +238,9 @@ curl -i -X POST 'https://open.feishu.cn/open-apis/docx/v1/documents/<document_id
 > 1: PlainText, 2: ABAP, 3: Ada, 4: Apache, 5: Apex, 6: Assembly Language, 7: Bash, 8: CSharp, 9: C++, 10: C, 11: COBOL, 12: CSS, 13: CoffeeScript, 14: D, 15: Dart, 16: Delphi, 17: Django, 18: Dockerfile, 19: Erlang, 20: Fortran, 22: Go, 23: Groovy, 24: HTML, 25: HTMLBars, 26: HTTP, 27: Haskell, 28: JSON, 29: Java, 30: JavaScript, 31: Julia, 32: Kotlin, 33: LateX, 34: Lisp, 36: Lua, 37: MATLAB, 38: Makefile, 39: Markdown, 40: Nginx, 41: Objective-C, 43: PHP, 44: Perl, 46: Power Shell, 47: Prolog, 48: ProtoBuf, 49: Python, 50: R, 52: Ruby, 53: Rust, 54: SAS, 55: SCSS, 56: SQL, 57: Scala, 58: Scheme, 60: Shell, 61: Swift, 62: Thrift, 63: TypeScript, 64: VBScript, 65: Visual Basic, 66: XML, 67: YAML, 68: CMake, 69: Diff, 70: Gherkin, 71: GraphQL, 72: OpenGL Shading Language, 73: Properties, 74: Solidity, 75: TOML
 
 ## 7. 更新块文本内容
+
 * 请求
+
 ```
 curl -i -X PATCH 'https://open.feishu.cn/open-apis/docx/v1/documents/Jg28dOoZ0ofnMdxcfDrcwJE6n0b/blocks/RXZTdBl6qoL5wzxSyuRcMHFnn4d?document_revision_id=-1' \
 -H 'Content-Type: application/json' \
@@ -259,7 +273,9 @@ curl -i -X PATCH 'https://open.feishu.cn/open-apis/docx/v1/documents/Jg28dOoZ0of
 	}
 }'
 ```
+
 * 返回数据：
+
 ```
 {
   "code": 0,
@@ -310,12 +326,16 @@ curl -i -X PATCH 'https://open.feishu.cn/open-apis/docx/v1/documents/Jg28dOoZ0of
 ```
 
 ## 8.获取块内容
+
 * 请求
+
 ```
 curl -i -X GET 'https://open.feishu.cn/open-apis/docx/v1/documents/Jg28dOoZ0ofnMdxcfDrcwJE6n0b/blocks/doxcn4e6moAlWwQL4eevxgQDAIh?document_revision_id=-1' \
 -H 'Authorization: Bearer t-g1043vjC5MA5A6P2TONFYSFS553GLB3YGNGH3E66'
 ```
+
 * 返回结果
+
 ```
 {
   "code": 0,
@@ -365,7 +385,9 @@ curl -i -X GET 'https://open.feishu.cn/open-apis/docx/v1/documents/Jg28dOoZ0ofnM
 ```
 
 ## 9. 创建无序列表块
+
 * 请求参数：
+
 ```
 curl -i -X POST 'https://open.feishu.cn/open-apis/docx/v1/documents/Jg28dOoZ0ofnMdxcfDrcwJE6n0b/blocks/Jg28dOoZ0ofnMdxcfDrcwJE6n0b/children?document_revision_id=-1' \
 -H 'Authorization: Bearer t-g1043vjC5MA5A6P2TONFYSFS553GLB3YGNGH3E66' \
@@ -399,7 +421,9 @@ curl -i -X POST 'https://open.feishu.cn/open-apis/docx/v1/documents/Jg28dOoZ0ofn
 	"index": 0
 }'
 ```
+
 * 返回数据
+
 ```
 {
   "code": 0,
@@ -439,7 +463,9 @@ curl -i -X POST 'https://open.feishu.cn/open-apis/docx/v1/documents/Jg28dOoZ0ofn
 ```
 
 ## 10.创建有无列表块
+
 * 请求参数
+
 ```
 curl -i -X POST 'https://open.feishu.cn/open-apis/docx/v1/documents/Jg28dOoZ0ofnMdxcfDrcwJE6n0b/blocks/Jg28dOoZ0ofnMdxcfDrcwJE6n0b/children?document_revision_id=-1' \
 -H 'Content-Type: application/json' \
@@ -473,7 +499,9 @@ curl -i -X POST 'https://open.feishu.cn/open-apis/docx/v1/documents/Jg28dOoZ0ofn
 	"index": 0
 }'
 ```
+
 * 返回数据
+
 ```
 {
   "code": 0,
@@ -513,12 +541,16 @@ curl -i -X POST 'https://open.feishu.cn/open-apis/docx/v1/documents/Jg28dOoZ0ofn
 ```
 
 ## 11.把wiki文档id转成documentId(只有转成documentId才能进行后续操作)
+
 * 请求接口：
+
 ```
 curl -i -X GET 'https://open.feishu.cn/open-apis/wiki/v2/spaces/get_node?obj_type=wiki&token=PdDWwIHD6iV8jFkInMhcIOY7npg' \
 -H 'Authorization: Bearer u-cgqN.PmJ90f87V9xSThOkSl42THl4lRbX2001gA22DDc'
 ```
+
 * 返回数据
+
 ```
 {
   "code": 0,
@@ -547,7 +579,9 @@ curl -i -X GET 'https://open.feishu.cn/open-apis/wiki/v2/spaces/get_node?obj_typ
 ```
 
 ## 12. 删除块
+
 * 请求接口：
+
 ```
 curl -i -X DELETE 'https://open.feishu.cn/open-apis/docx/v1/documents/WJsOd6selovWbBxU5Ptc5DfBnOe/blocks/WJsOd6selovWbBxU5Ptc5DfBnOe/children/batch_delete?document_revision_id=-1' \
 -H 'Content-Type: application/json' \
@@ -557,7 +591,9 @@ curl -i -X DELETE 'https://open.feishu.cn/open-apis/docx/v1/documents/WJsOd6selo
 	"start_index": 0
 }'
 ```
+
 * 返回数据：
+
 ```
 {
   "code": 0,
@@ -570,21 +606,28 @@ curl -i -X DELETE 'https://open.feishu.cn/open-apis/docx/v1/documents/WJsOd6selo
 ```
 
 ### 13. 获取图片资源
+
 * 请求接口：
+
 ```
 curl -i -X GET 'https://open.feishu.cn/open-apis/drive/v1/medias/boxcnrHpsg1QDqXAAAyachabcef/download?extra=%E6%97%A0' \
 -H 'Authorization: Bearer t-7f1b******8e560'
 ```
+
 * 返回数据
-返回文件二进制流
+  返回文件二进制流
 
 ### 14.获取根文件夹信息
+
 * 请求接口：
+
 ```
 curl --location 'https://open.feishu.cn/open-apis/drive/explorer/v2/root_folder/meta' \
 --header 'Authorization: Bearer t-e13d5ec1954e82e458f3ce04491c54ea8c9abcef'
 ```
+
 * 返回数据：
+
 ```
 {
   "code": 0,
@@ -598,12 +641,16 @@ curl --location 'https://open.feishu.cn/open-apis/drive/explorer/v2/root_folder/
 ```
 
 ### 15. 获取文件夹中的文件清单
+
 * 请求接口：
+
 ```
 curl -i -X GET 'https://open.feishu.cn/open-apis/drive/v1/files?direction=DESC&folder_token=C4xYfOKM5ldYzod41TUcmOLFnR6&order_by=EditedTime' \
 -H 'Authorization: Bearer t-g1044ihxDPBYG2UZWJXWUTVKXGK4OFDG62LW6TXZ'
 ```
+
 * 返回数据：
+
 ```
 {
   "code": 0,
@@ -657,7 +704,9 @@ curl -i -X GET 'https://open.feishu.cn/open-apis/drive/v1/files?direction=DESC&f
 ```
 
 ### 16.新建文件夹
+
 * 请求接口：
+
 ```
 curl -i -X POST 'https://open.feishu.cn/open-apis/drive/v1/files/create_folder' \
 -H 'Content-Type: application/json' \
@@ -667,7 +716,9 @@ curl -i -X POST 'https://open.feishu.cn/open-apis/drive/v1/files/create_folder' 
 	"name": "产品优化项目"
 }'
 ```
+
 * 返回数据：
+
 ```
 {
   "code": 0,
@@ -680,9 +731,12 @@ curl -i -X POST 'https://open.feishu.cn/open-apis/drive/v1/files/create_folder' 
 ```
 
 ### 17.插入图片
+
 #### 1. 创建图片 Block
+
 * 请求接口：
-url:https://open.feishu.cn/open-apis/docx/v1/documents/:document_id/blocks/:block_id/children
+  url:<https://open.feishu.cn/open-apis/docx/v1/documents/:document_id/blocks/:block_id/children>
+
 ```
 curl --location --request POST '{url}' \
 --header 'Authorization: {Authorization}' \
@@ -697,7 +751,9 @@ curl --location --request POST '{url}' \
   ]
 }'
 ```
+
 * 返回数据：
+
 ```
 {
     "code": 0,
@@ -721,9 +777,13 @@ curl --location --request POST '{url}' \
     "msg": ""
 }
 ```
+
 #### 2. 上传图片素材
-url:https://open.feishu.cn/open-apis/drive/v1/medias/upload_all
+
+url:<https://open.feishu.cn/open-apis/drive/v1/medias/upload_all>
+
 * 请求数据
+
 ```
 curl --location --request POST '{url}' \
 --header 'Authorization: {Authorization}' \
@@ -734,7 +794,9 @@ curl --location --request POST '{url}' \
 --form 'parent_node="doxcnEUmKKppwWrnUIcgZ2ibc9g"' \ # Image BlockID
 --form 'size="xxx"' # 图片大小
 ```
+
 * 返回数据
+
 ```
 {
     "code": 0,
@@ -744,8 +806,11 @@ curl --location --request POST '{url}' \
     "msg": "Success"
 }
 ```
+
 ##### 3. 设置图片 Block 的素材
-url:https://open.feishu.cn/open-apis/docx/v1/documents/:document_id/blocks/:block_id
+
+url:<https://open.feishu.cn/open-apis/docx/v1/documents/:document_id/blocks/:block_id>
+
 ```
 url --location --request PATCH '{url}' \
 --header 'Authorization: {Authorization}' \
@@ -758,15 +823,20 @@ url --location --request PATCH '{url}' \
 ```
 
 ### 18. 搜索文档
-url:https://open.feishu.cn/open-apis/suite/docs-api/search/object
+
+url:<https://open.feishu.cn/open-apis/suite/docs-api/search/object>
+
 * 请求数据
+
 ```
 {
 "search_key": "项目", //是 指定搜索的关键字。
 "count": 10, //否 指定搜索返回的文件数量。取值范围为 [0,50]。
 }
 ```
+
 * 返回数据
+
 ```
 {
     "code": 0,
@@ -785,11 +855,14 @@ url:https://open.feishu.cn/open-apis/suite/docs-api/search/object
     "msg": "success"
 }
 ```
+
 ### 19. 获取画板内容
+
 * 请求：
-  curl -i -X GET 'https://open.feishu.cn/open-apis/board/v1/whiteboards/PcdvwsVkEhylj7bQ74pcOFKXnHE/nodes' \
+  curl -i -X GET '<https://open.feishu.cn/open-apis/board/v1/whiteboards/PcdvwsVkEhylj7bQ74pcOFKXnHE/nodes>' \
   -H 'Authorization: Bearer u-fqvA2wpLlaWb0CRxO1Zc4j4gmhzM4kahMo00gkE02e7y'
 * 返回数据：
+
 ```
 {
   "code": 0,
@@ -920,14 +993,17 @@ url:https://open.feishu.cn/open-apis/suite/docs-api/search/object
   "msg": ""
 }
 ```
+
 ## 20. 获取画板缩略图
-* 请求：curl -i -X GET 'https://open.feishu.cn/open-apis/board/v1/whiteboards/MVPUwrM3****YLngv/download_as_image' \
+
+* 请求：curl -i -X GET '<https://open.feishu.cn/open-apis/board/v1/whiteboards/MVPUwrM3****YLngv/download_as_image>' \
   -H 'Authorization: Bearer u-cXlil7g6F6MV9aBhJG2Gcpl5k0sAlhGhiW0055Q02ex0'
 * 二进制图片
 
-
 ## 21. 创建Mermaid
+
 * 请求参数
+
 ```
 curl -i -X POST 'https://open.feishu.cn/open-apis/docx/v1/documents/XL8NdbMQuo9QKVxqAovc5q5snk1/blocks/XL8NdbMQuo9QKVxqAovc5q5snk1/children?document_revision_id=-1' \
 -H 'Content-Type: application/json' \
@@ -946,7 +1022,9 @@ curl -i -X POST 'https://open.feishu.cn/open-apis/docx/v1/documents/XL8NdbMQuo9Q
 	"index": 0
 }'
 ```
+
 * 返回数据
+
 ```
 {
   "code": 0,
@@ -970,28 +1048,29 @@ curl -i -X POST 'https://open.feishu.cn/open-apis/docx/v1/documents/XL8NdbMQuo9Q
 }
 ```
 
-20. 权限
-* 获取块："contact:user.employee_id:readonly",
-    "docx:document",
-    "docx:document:readonly"
-* 创建文档： "docx:document",
-  "docx:document:create"
-* 创建块：    "contact:user.employee_id:readonly",
-  "docx:document"
-* 创建嵌套块： "contact:user.employee_id:readonly",
-  "docx:document"
-* 更新块：  "contact:user.employee_id:readonly",
-  "docx:document"
-* 获取块内容：  "contact:user.employee_id:readonly",
+1. 权限
+
+* 获取块："contact:user.employee\_id:readonly",
   "docx:document",
   "docx:document:readonly"
-* 获取所有子块：  "contact:user.employee_id:readonly",
+* 创建文档： "docx:document",
+  "docx:document:create"
+* 创建块：    "contact:user.employee\_id:readonly",
+  "docx:document"
+* 创建嵌套块： "contact:user.employee\_id:readonly",
+  "docx:document"
+* 更新块：  "contact:user.employee\_id:readonly",
+  "docx:document"
+* 获取块内容：  "contact:user.employee\_id:readonly",
+  "docx:document",
+  "docx:document:readonly"
+* 获取所有子块：  "contact:user.employee\_id:readonly",
   "docx:document",
   "docx:document:readonly"
 * 删除块：   "docx:document"
 * 获取画板缩略图片： "board:whiteboard:node:read"
 * 获取所有画板节点：  "board:whiteboard:node:read",
-  "contact:user.employee_id:readonly"
+  "contact:user.employee\_id:readonly"
 * 创建画板块： "docx:document"
 * 填充画板内容（创建 PlantUML 节点）： "board:whiteboard:node:write"
 * wiki转节点： "wiki:node:read",
@@ -1012,12 +1091,14 @@ curl -i -X POST 'https://open.feishu.cn/open-apis/docx/v1/documents/XL8NdbMQuo9Q
   "drive:drive:readonly",
   "sheets:spreadsheet",
   "sheets:spreadsheet:readonly"
-* 刷新token:offline_access
+* 刷新token:offline\_access
 
 ## 22. 创建画板块并填充内容
 
 ### 22.1 创建画板块（空块）
+
 * 请求接口：
+
 ```
 curl -i -X POST 'https://open.feishu.cn/open-apis/docx/v1/documents/<document_id>/blocks/<block_id>/children?document_revision_id=-1' \
 -H 'Content-Type: application/json' \
@@ -1034,12 +1115,14 @@ curl -i -X POST 'https://open.feishu.cn/open-apis/docx/v1/documents/<document_id
     "index": 0
 }'
 ```
+
 * 请求参数说明：
-  - `block_type`: 块类型，固定为 43（画板块）
-  - `board.align`: 对齐方式（可选），1=左对齐（默认），2=居中，3=右对齐
-  - `index`: 插入位置索引（可选），默认为 0
+  * `block_type`: 块类型，固定为 43（画板块）
+  * `board.align`: 对齐方式（可选），1=左对齐（默认），2=居中，3=右对齐
+  * `index`: 插入位置索引（可选），默认为 0
 
 * 返回数据：
+
 ```
 {
     "code": 0,
@@ -1061,10 +1144,13 @@ curl -i -X POST 'https://open.feishu.cn/open-apis/docx/v1/documents/<document_id
     "msg": "success"
 }
 ```
-> 注：创建成功后，返回数据中的 `board.token` 字段即为画板ID（whiteboard_id），后续需要使用此token来填充画板内容。
+
+> 注：创建成功后，返回数据中的 `board.token` 字段即为画板ID（whiteboard\_id），后续需要使用此token来填充画板内容。
 
 ### 22.2 填充画板内容（创建图表节点，支持 PlantUML 和 Mermaid）
+
 * 请求接口：
+
 ```
 curl -i -X POST 'https://open.feishu.cn/open-apis/board/v1/whiteboards/<whiteboard_id>/nodes/plantuml' \
 -H 'Content-Type: application/json' \
@@ -1077,11 +1163,12 @@ curl -i -X POST 'https://open.feishu.cn/open-apis/board/v1/whiteboards/<whiteboa
 ```
 
 * 请求参数说明：
-  - `plant_uml_code`: 图表代码（必填），支持 PlantUML 或 Mermaid 格式的完整图表代码
-  - `style_type`: 样式类型（必填），1=画板样式（解析为多个画板节点，不可二次编辑），2=经典样式（解析为图片，可二次编辑，仅 PlantUML 支持）
-  - `syntax_type`: 语法类型（必填），1=PlantUML 语法，2=Mermaid 语法
+  * `plant_uml_code`: 图表代码（必填），支持 PlantUML 或 Mermaid 格式的完整图表代码
+  * `style_type`: 样式类型（必填），1=画板样式（解析为多个画板节点，不可二次编辑），2=经典样式（解析为图片，可二次编辑，仅 PlantUML 支持）
+  * `syntax_type`: 语法类型（必填），1=PlantUML 语法，2=Mermaid 语法
 
-* PlantUML 格式示例（syntax_type: 1）：
+* PlantUML 格式示例（syntax\_type: 1）：
+
 ```
 {
     "plant_uml_code": "@startuml\nAlice -> Bob: Hello\n@enduml",
@@ -1090,7 +1177,8 @@ curl -i -X POST 'https://open.feishu.cn/open-apis/board/v1/whiteboards/<whiteboa
 }
 ```
 
-* Mermaid 格式示例（syntax_type: 2）：
+* Mermaid 格式示例（syntax\_type: 2）：
+
 ```
 {
     "plant_uml_code": "graph TD\nA[Start] --> B[End]",
@@ -1100,6 +1188,7 @@ curl -i -X POST 'https://open.feishu.cn/open-apis/board/v1/whiteboards/<whiteboa
 ```
 
 * 返回数据：
+
 ```
 {
     "code": 0,
@@ -1111,11 +1200,12 @@ curl -i -X POST 'https://open.feishu.cn/open-apis/board/v1/whiteboards/<whiteboa
 ```
 
 * 使用流程：
-  1. 首先使用创建块接口创建画板块（block_type: 43），获取返回的 `board.token`
+  1. 首先使用创建块接口创建画板块（block\_type: 43），获取返回的 `board.token`
   2. 使用获取到的 `token` 作为 URL 路径中的 `whiteboard_id` 参数，调用填充画板内容接口
   3. 根据要创建的图表类型，设置 `syntax_type`：1=PlantUML，2=Mermaid
   4. 设置 `style_type`：1=画板样式（推荐），2=经典样式（仅 PlantUML 支持）
 
 * 支持的图表类型：
-  - **PlantUML (syntax_type: 1)**: 时序图、活动图、类图、用例图、组件图、思维导图、流程图等
-  - **Mermaid (syntax_type: 2)**: 流程图、时序图、类图、ER图、甘特图、状态图、组件图等
+  * **PlantUML (syntax\_type: 1)**: 时序图、活动图、类图、用例图、组件图、思维导图、流程图等
+  * **Mermaid (syntax\_type: 2)**: 流程图、时序图、类图、ER图、甘特图、状态图、组件图等
+
